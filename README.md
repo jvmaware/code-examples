@@ -1,2 +1,2 @@
 # CodeExamples
-This repository hosts sample code for various blog posts on jvmaware.com
+This repository hosts sample code for various blog posts on [jvmaware.com](https://jvmaware.com/)
