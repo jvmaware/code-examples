@@ -9,6 +9,7 @@
     <version>0.1</version>
     <modules>
         <module>prioritized-tasks-in-tpe</module>
+        <module>remote-proxies</module>
     </modules>
     <packaging>pom</packaging>
 
