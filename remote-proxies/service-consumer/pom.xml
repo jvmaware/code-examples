@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>remote-proxies</artifactId>
+        <groupId>com.jvmaware</groupId>
+        <version>0.1</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>service-consumer</artifactId>
+
+    <properties>
+        <service.contract.version>0.1</service.contract.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jvmaware</groupId>
+            <artifactId>service-contract</artifactId>
+            <version>${service.contract.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
