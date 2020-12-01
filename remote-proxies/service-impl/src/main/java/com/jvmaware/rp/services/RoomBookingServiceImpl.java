@@ -16,17 +16,17 @@ public class RoomBookingServiceImpl implements RoomBookingService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    public boolean isAvailable(LocalDate from, LocalDate to, int count) {
+    public Boolean isAvailable(LocalDate from, LocalDate to, int count) {
         return false;
     }
 
     @Override
-    public long book(LocalDate from, LocalDate to, int count) throws BookingException {
-        return 0;
+    public Long book(LocalDate from, LocalDate to, int count) throws BookingException {
+        return 0L;
     }
 
     @Override
-    public boolean cancel(long bookingId) throws BookingException {
+    public Boolean cancel(long bookingId) throws BookingException {
         return false;
     }
 }

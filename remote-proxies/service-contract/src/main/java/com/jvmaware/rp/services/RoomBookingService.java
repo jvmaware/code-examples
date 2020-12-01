@@ -23,7 +23,7 @@ public interface RoomBookingService {
      * @param count number of rooms requested.
      * @return true if a room is available, false otherwise
      */
-    boolean isAvailable(LocalDate from, LocalDate to, int count);
+    Boolean isAvailable(LocalDate from, LocalDate to, int count);
 
     /**
      * Book room(s) for the given dates.
@@ -33,7 +33,7 @@ public interface RoomBookingService {
      * @return confirmed booking id .
      * @throws BookingException if the requested rooms are not available or invalid start/end dates.
      */
-    long book(LocalDate from, LocalDate to, int count) throws BookingException;
+    Long book(LocalDate from, LocalDate to, int count) throws BookingException;
 
     /**
      * Cancel a booking represented by the bookingId.
@@ -41,6 +41,6 @@ public interface RoomBookingService {
      * @param bookingId the bookingId representing the actual booking in the system.
      * @return true if cancelled; false otherwise
      */
-    boolean cancel(long bookingId) throws BookingException;
+    Boolean cancel(long bookingId) throws BookingException;
 
 }

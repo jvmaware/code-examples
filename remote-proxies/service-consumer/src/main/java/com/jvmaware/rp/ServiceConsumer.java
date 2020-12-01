@@ -27,19 +27,19 @@ public class ServiceConsumer {
         RoomBookingService roomBookingService = ServiceProvider.roomBookingService();
 
         LocalDate now = LocalDate.now();
-        LocalDate tommorow = now.plus(1, ChronoUnit.DAYS);
+        LocalDate tomorrow = now.plus(1, ChronoUnit.DAYS);
         int requestedRoomCount = 2;
 
         // rooms are available; book rooms
-        if(roomBookingService.isAvailable(now, tommorow, requestedRoomCount)){
-            logger.info("[{}] rooms are available for: [{}] and [{}]", requestedRoomCount, now, tommorow);
-            roomBookingService.book(now, tommorow, requestedRoomCount);
+        if(roomBookingService.isAvailable(now, tomorrow, requestedRoomCount)){
+            logger.info("[{}] rooms are available for: [{}] and [{}]", requestedRoomCount, now, tomorrow);
+            roomBookingService.book(now, tomorrow, requestedRoomCount);
         }
 
         // rooms not available
-        if(roomBookingService.isAvailable(now, tommorow, requestedRoomCount)){
-            logger.info("[{}] rooms are available for: [{}] and [{}]", requestedRoomCount, now, tommorow);
-            roomBookingService.book(now, tommorow, requestedRoomCount);
+        if(roomBookingService.isAvailable(now, tomorrow, requestedRoomCount)){
+            logger.info("[{}] rooms are available for: [{}] and [{}]", requestedRoomCount, now, tomorrow);
+            roomBookingService.book(now, tomorrow, requestedRoomCount);
         }
     }
 }
