@@ -10,10 +10,24 @@ import java.time.LocalDate;
  * The class provides concrete implementation for the {@link RoomBookingService}
  * and represent a remotely hosted service triggered by a proxy instance.
  *
+ * <strong>Assumptions</strong>
+ * <ul>
+ *     <li>No partial bookings are allowed - room count wise</li>
+ *     <li>Bookings are done for the entire day - no hourly bookings supported</li>
+ * </ul>
+ *
+ *
  * @author gaurs
  */
 public class RoomBookingServiceImpl implements RoomBookingService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final int roomsCount;
+    private int availableRooms;
+
+    public RoomBookingServiceImpl(int roomsCount) {
+        this.roomsCount = roomsCount;
+        this.availableRooms = roomsCount;
+    }
 
     @Override
     public Boolean isAvailable(LocalDate from, LocalDate to, int count) {

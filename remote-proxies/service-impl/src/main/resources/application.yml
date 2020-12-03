@@ -1,2 +1,5 @@
 server:
   port: 10000
+
+rooms:
+  count: 5

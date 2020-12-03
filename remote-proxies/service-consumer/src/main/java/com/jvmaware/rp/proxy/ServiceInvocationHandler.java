@@ -1,15 +1,15 @@
 package com.jvmaware.rp.proxy;
 
 import com.jvmaware.rp.config.ConfigProvider;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.text.MessageFormat;
 import java.time.Duration;
+import java.util.function.Supplier;
 
 /**
  * The single point of interaction between client and remote service.
@@ -35,22 +35,18 @@ public class ServiceInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        var url = configProvider.getConfig().getBaseUrl() + configProvider.getConfig().getMappings().get(method.getName());
-        var returnType = method.getReturnType();
+        var config = configProvider.getConfig();
+        var baseUrl = config.getBaseUrl();
+        var httpMethodAndUrl = config.getMappings().get(method.getName());
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(MessageFormat.format(url, args)))
+                .uri(URI.create(MessageFormat.format(baseUrl + httpMethodAndUrl.getEndPoint(), args)))
                 .timeout(Duration.ofMinutes(1))
                 .header("Content-Type", "application/json")
-                .GET()
+                .method(httpMethodAndUrl.getMethod(), HttpRequest.BodyPublishers.noBody())
                 .build();
 
-        HttpResponse<?> response = client.send(request, new HttpResponse.BodyHandler<Boolean>() {
-            @Override
-            public HttpResponse.BodySubscriber<Boolean> apply(HttpResponse.ResponseInfo responseInfo) {
-                return null;
-            }
-        });
-        return response.body();
+        Supplier<?> body = client.send(request, new CustomBodyHandler<>(method.getReturnType())).body();
+        return body.get();
     }
 }

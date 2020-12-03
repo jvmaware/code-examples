@@ -1,5 +1,11 @@
 baseUrl: http://localhost:10000
 mappings:
-  book: /booking/new/{2}?from={0}&to={1}
-  cancel: /booking/cancel/{0}
-  isAvailable: /booking/check/{2}?from={0}&to={1}
+  book:
+    method: POST
+    endPoint: /booking/new/{2}?from={0}&to={1}
+  cancel:
+    method: POST
+    endPoint: /booking/cancel/{0}
+  isAvailable:
+    method: GET
+    endPoint: /booking/check/{2}?from={0}&to={1}

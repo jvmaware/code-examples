@@ -19,15 +19,14 @@ public class ServiceConsumer {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
-        ServiceConsumer serviceConsumer = new ServiceConsumer();
+        var serviceConsumer = new ServiceConsumer();
         serviceConsumer.triggerInvocations();
     }
 
     private void triggerInvocations() {
-        RoomBookingService roomBookingService = ServiceProvider.roomBookingService();
-
-        LocalDate now = LocalDate.now();
-        LocalDate tomorrow = now.plus(1, ChronoUnit.DAYS);
+        var roomBookingService = ServiceProvider.roomBookingService();
+        var now = LocalDate.now();
+        var tomorrow = now.plus(1, ChronoUnit.DAYS);
         int requestedRoomCount = 2;
 
         // rooms are available; book rooms
