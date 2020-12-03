@@ -5,22 +5,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 /**
- * The class provides concrete implementation for the {@link RoomBookingService}
+ * The class provides a <strong>DEMO</strong> implementation for the {@link RoomBookingService}
  * and represent a remotely hosted service triggered by a proxy instance.
- *
- * <strong>Assumptions</strong>
- * <ul>
- *     <li>No partial bookings are allowed - room count wise</li>
- *     <li>Bookings are done for the entire day - no hourly bookings supported</li>
- * </ul>
- *
  *
  * @author gaurs
  */
 public class RoomBookingServiceImpl implements RoomBookingService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Random randomNumberGenerator = new Random();
+
     private final int roomsCount;
     private int availableRooms;
 
@@ -31,16 +27,25 @@ public class RoomBookingServiceImpl implements RoomBookingService {
 
     @Override
     public Boolean isAvailable(LocalDate from, LocalDate to, int count) {
-        return false;
+        // some implementation to check the room availability here
+        // sending a default value for DEMO
+        logger.info("room availability checked completed");
+        return true;
     }
 
     @Override
     public Long book(LocalDate from, LocalDate to, int count) throws BookingException {
-        return 0L;
+        // some implementation to book the rooms
+        // sending a default booking id for DEMO
+        logger.info("booking completed successfully");
+        return randomNumberGenerator.nextLong();
     }
 
     @Override
     public Boolean cancel(long bookingId) throws BookingException {
-        return false;
+        // some implementation to cancel the room booking
+        // sending a default value for DEMO
+        logger.info("booking cancelled successfully");
+        return true;
     }
 }
