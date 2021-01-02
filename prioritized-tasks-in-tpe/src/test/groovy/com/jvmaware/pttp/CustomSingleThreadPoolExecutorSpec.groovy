@@ -1,4 +1,4 @@
-package com.jvmaware
+package com.jvmaware.pttp
 
 import spock.lang.Specification
 import spock.mock.DetachedMockFactory

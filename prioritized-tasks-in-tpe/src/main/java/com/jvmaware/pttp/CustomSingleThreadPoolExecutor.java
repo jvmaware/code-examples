@@ -1,4 +1,4 @@
-package com.jvmaware;
+package com.jvmaware.pttp;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.RunnableFuture;

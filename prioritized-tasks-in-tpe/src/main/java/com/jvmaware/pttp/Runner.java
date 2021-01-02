@@ -1,4 +1,4 @@
-package com.jvmaware;
+package com.jvmaware.pttp;
 
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

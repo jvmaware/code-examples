@@ -10,6 +10,7 @@
     <modules>
         <module>prioritized-tasks-in-tpe</module>
         <module>remote-proxies</module>
+        <module>locking-variants</module>
     </modules>
     <packaging>pom</packaging>
 
