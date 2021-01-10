@@ -15,14 +15,22 @@ import org.openjdk.jmh.infra.Blackhole;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Pessimistic Locking: Pessimistic locking (generally implemented using synchronized keyword in java) is a way of achieving mutual exclusion by
+ * always locking the entire scope.The first thread to acquire the lock will retain the lock until the scope execution. It will then release the
+ * lock which can then be acquired by any other waiting thread.
+ *
+ * The problem with this approach lies in the fact that we always assume that all possible threads will be competing for the underlying resource at
+ * the same time which is generally not the case.
+ *
+ *
  * @author gaurs
  */
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(value = 1, warmups = 1)
-@Warmup(iterations = 2)
-@Measurement(iterations = 2)
+@Fork(value = 2, warmups = 1)
+@Warmup(iterations = 5)
+@Measurement(iterations = 5)
 @Threads(value = Threads.MAX)
 public class PessimisticLocking {
 

@@ -16,13 +16,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * Optimistic locking is a way of managing concurrency control, generally used by transactional systems.
+ * In this implementation, we allow multiple threads to compete for the update completion but only committing
+ * the transaction if it’s not already updated.
+ * <p>
+ * The same is implemented using {@link AtomicInteger} in this example.
+ *
  * @author gaurs
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(value = 1, warmups = 1)
-@Warmup(iterations = 2)
-@Measurement(iterations = 2)
+@Fork(value = 2, warmups = 1)
+@Warmup(iterations = 5)
+@Measurement(iterations = 5)
 @Threads(value = Threads.MAX)
 public class OptimisticLocking {
 
@@ -30,7 +36,7 @@ public class OptimisticLocking {
     public static class CustomState {
         private final AtomicInteger sharedResource = new AtomicInteger();
 
-        public void inc(){
+        public void inc() {
             sharedResource.getAndIncrement();
         }
 
