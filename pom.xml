@@ -11,6 +11,7 @@
         <module>prioritized-tasks-in-tpe</module>
         <module>remote-proxies</module>
         <module>locking-variants</module>
+        <module>lru-cache</module>
     </modules>
     <packaging>pom</packaging>
 
