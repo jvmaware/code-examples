@@ -12,6 +12,7 @@
         <module>remote-proxies</module>
         <module>locking-variants</module>
         <module>lru-cache</module>
+        <module>streaming-response</module>
     </modules>
     <packaging>pom</packaging>
 
