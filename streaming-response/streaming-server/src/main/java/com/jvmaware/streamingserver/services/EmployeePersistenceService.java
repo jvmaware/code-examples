@@ -1,9 +1,11 @@
 package com.jvmaware.streamingserver.services;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
+import com.jvmaware.streamingserver.model.logical.Employee;
+
+import java.util.stream.Stream;
 
 public interface EmployeePersistenceService {
 
-    ResponseEntity<StreamingResponseBody> findActiveEmployee();
+    Stream<Employee> findActiveEmployee();
+    //ResponseEntity<StreamingResponseBody> findActiveEmployee();
 }
