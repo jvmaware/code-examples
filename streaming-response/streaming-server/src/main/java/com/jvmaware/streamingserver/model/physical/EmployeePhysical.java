@@ -5,11 +5,13 @@ import com.jvmaware.streamingserver.model.logical.Employee;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
-@Entity(name = "Employee")
+@Entity(name = "Employees")
 public class EmployeePhysical {
 
     @Id
+    @Column(name = "EMP_NO")
     private Long id;
 
     @Column(name = "FIRST_NAME")
@@ -18,50 +20,26 @@ public class EmployeePhysical {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "IS_ACTIVE")
-    private Boolean active;
+    @Column(name = "GENDER")
+    private String gender;
 
-    public EmployeePhysical(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.active = true;
-    }
+    @Column(name = "BIRTH_DATE")
+    private LocalDate birthDate;
 
-    public EmployeePhysical(Employee employee) {
-        this(employee.getFirstName(), employee.getLastName());
-    }
+    @Column(name = "HIRE_DATE")
+    private LocalDate hireDate;
 
     public EmployeePhysical() {
-
     }
 
     public Employee toModel() {
-        return new Employee(this.getFirstName(), this.getLastName());
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", active='" + active + '\'' +
-                '}';
+        return Employee.EmployeeBuilder
+                .anEmployee()
+                .withFirstName(this.firstName)
+                .withLastName(this.lastName)
+                .withGender(this.gender)
+                .withBirthDate(this.birthDate)
+                .withHireDate(hireDate)
+                .build();
     }
 }
