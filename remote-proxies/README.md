@@ -1,6 +1,6 @@
 # Implementing remote proxies in java
 
-This is an example for a blog post published on [jvmaware.com](https://jvmaware.com/blog/remote-proxy/) describing how to implement remote proxy 
+This is an example for a blog post published on [jvmaware.com](https://jvmaware.com/remote-proxy/) describing how to implement remote proxy 
 pattern in java.
  
 The example includes the following components:

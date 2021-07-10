@@ -14,7 +14,7 @@
     <properties>
         <service.contract.version>0.1</service.contract.version>
         <jackson.datatype.version>2.12.0</jackson.datatype.version>
-        <java.version>15</java.version>
+        <java.version>16</java.version>
     </properties>
 
     <dependencies>

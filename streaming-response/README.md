@@ -1,6 +1,6 @@
 # Implementing Streaming functionality using SpringBoot Rest API
 
-This is an example for a blog post published on [jvmaware.com](https://jvmaware.com/blog/streaming-json-response/) describing how to implement 
+This is an example for a blog post published on [jvmaware.com](https://jvmaware.com/streaming-json-response/) describing how to implement 
 json streaming using `StreamingResponseBody`.
 
 The example includes the following components:
