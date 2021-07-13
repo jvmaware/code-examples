@@ -11,6 +11,12 @@ class SuppressedExceptionsTryWithResourcesSpec extends Specification {
 
         suppressedExceptionsDemo.tryReadingFile("some-random-path")
         then: "exception is received"
-        thrown(FileNotFoundException.class)
+        def fnf = thrown(FileNotFoundException.class)
+        and: "suppressed exceptions is present"
+        fnf.getSuppressed().length != 0
+        and: "the exception thrown from the close method is added to the suppressed list"
+        fnf.getSuppressed()[0].class == RuntimeException.class
+        and: "check the message"
+        fnf.getSuppressed()[0].message == "SomeAutoCloseableClass: Exception thrown from Implicit finally block while closing"
     }
 }
