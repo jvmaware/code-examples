@@ -41,7 +41,7 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
         // unbounded
         taskList = new LinkedBlockingQueue<>();
         threadList = new ArrayList<>(corePoolSize);
-        threadSupplier = () -> new CustomThread(this.taskList, this.run, this.corePoolSize, this.keepAlive);
+        threadSupplier = () -> new CustomThread(this.taskList, this.run);
 
         init();
     }
@@ -133,7 +133,7 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
             taskList.add(futureTask);
         }else if(taskList.size() < maxPoolSize){
             // create a new thread for the threadList
-            CustomThread customThread = new CustomThread(taskList, run, corePoolSize, keepAlive);
+            CustomThread customThread = new CustomThread(taskList, run);
             threadList.add(customThread);
             customThread.start();
 
@@ -154,7 +154,7 @@ public class CustomThreadPoolImpl implements CustomThreadPool {
         private final BlockingQueue<Runnable> taskList;
         private final AtomicBoolean run;
 
-        private CustomThread(BlockingQueue<Runnable> taskList, AtomicBoolean run, int corePoolSize, int keepAlive) {
+        private CustomThread(BlockingQueue<Runnable> taskList, AtomicBoolean run) {
             this.taskList = taskList;
             this.run = run;
         }
