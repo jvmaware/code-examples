@@ -14,6 +14,7 @@
         <module>lru-cache</module>
         <module>streaming-response</module>
         <module>suppressed-exceptions</module>
+        <module>custom-thread-pool</module>
     </modules>
     <packaging>pom</packaging>
 

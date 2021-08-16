@@ -9,5 +9,5 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>prioritized-tasks-in-tpe</artifactId>
+    <artifactId>custom-thread-pool</artifactId>
 </project>
