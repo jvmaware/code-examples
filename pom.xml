@@ -15,6 +15,7 @@
         <module>streaming-response</module>
         <module>suppressed-exceptions</module>
         <module>custom-thread-pool</module>
+        <module>stream-support</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -22,19 +23,18 @@
         <java.version>16</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <logback.version>1.3.0-alpha5</logback.version>
-        <spock.core>2.0-M4-groovy-3.0</spock.core>
-        <groovy.all>3.0.6</groovy.all>
+        <logback.version>1.3.0-alpha9</logback.version>
+        <spock.core>2.0-groovy-3.0</spock.core>
+        <groovy.all>3.0.8</groovy.all>
 
-        <objenesis.version>3.1</objenesis.version>
-        <junit.version>4.13.1</junit.version>
-        <bytebuddy.version>1.10.18</bytebuddy.version>
-        <slfj.version>2.0.0-alpha1</slfj.version>
-        <spock.reports>2.0-RC2</spock.reports>
+        <bytebuddy.version>1.11.12</bytebuddy.version>
+        <objenesis.version>3.2</objenesis.version>
+        <junit.version>4.13.2</junit.version>
+        <spock.reports>2.0.1-RC3</spock.reports>
 
-        <gmaven.plugin>1.11.0</gmaven.plugin>
+        <gmaven.plugin>1.12.1</gmaven.plugin>
         <maven.surefire>3.0.0-M5</maven.surefire>
-        <jacoco.version>0.8.6</jacoco.version>
+        <jacoco.version>0.8.7</jacoco.version>
 
         <maven.compiler>3.8.1</maven.compiler>
     </properties>
