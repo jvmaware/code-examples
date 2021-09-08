@@ -8,3 +8,4 @@ This repository hosts sample code for various blog posts on [jvmaware.com](https
 5. [Streaming Json Response](./streaming-response)
 6. [Suppressed Exceptions](./suppressed-exceptions)
 7. [Custom Thread Pool](./custom-thread-pool)
+8. [Streams and Iterables](./stream-support)
