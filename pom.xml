@@ -7,6 +7,7 @@
     <groupId>com.jvmaware</groupId>
     <artifactId>code-examples</artifactId>
     <version>0.1</version>
+
     <modules>
         <module>prioritized-tasks-in-tpe</module>
         <module>remote-proxies</module>
@@ -16,23 +17,22 @@
         <module>suppressed-exceptions</module>
         <module>custom-thread-pool</module>
         <module>stream-support</module>
+        <module>bloom-filters</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>16</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <logback.version>1.3.0-alpha9</logback.version>
-        <spock.core>2.0-groovy-3.0</spock.core>
-        <groovy.all>3.0.8</groovy.all>
+        <logback.version>1.4.5</logback.version>
+        <spock.core>2.4-M1-groovy-4.0</spock.core>
+        <groovy.all>4.0.5</groovy.all>
 
-        <bytebuddy.version>1.11.12</bytebuddy.version>
-        <objenesis.version>3.2</objenesis.version>
-        <junit.version>4.13.2</junit.version>
-        <spock.reports>2.0.1-RC3</spock.reports>
 
-        <gmaven.plugin>1.12.1</gmaven.plugin>
+        <spock.reports>2.4.0-groovy-4.0</spock.reports>
+
+        <gmaven.plugin>2.1.0</gmaven.plugin>
         <maven.surefire>3.0.0-M5</maven.surefire>
         <jacoco.version>0.8.7</jacoco.version>
 
@@ -44,20 +44,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <version>${bytebuddy.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <version>${objenesis.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- to generate spock reports -->
@@ -74,14 +60,6 @@
             </exclusions>
         </dependency>
 
-        <!-- for test cases/suits -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- spock framework to support gherkin pattern of testing -->
         <dependency>
             <groupId>org.spockframework</groupId>
@@ -91,11 +69,11 @@
         </dependency>
 
         <dependency>
-            <!-- use a specific Groovy version rather than the one specified by spock-core -->
-            <groupId>org.codehaus.groovy</groupId>
+            <groupId>org.apache.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>${groovy.all}</version>
             <type>pom</type>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -131,7 +109,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire}</version>
                 <configuration>
-                    <argLine>${surefireArgLine}</argLine>
+                    <argLine>@{argLine}</argLine>
                     <includes>
                         <include>**/*Spec.groovy</include>
                         <include>**/*.java</include>
@@ -165,7 +143,7 @@
                                 Sets the name of the property containing the settings
                                 for JaCoCo runtime agent.
                             -->
-                            <propertyName>surefireArgLine</propertyName>
+                            <propertyName>argLine</propertyName>
                         </configuration>
                     </execution>
                     <!--
