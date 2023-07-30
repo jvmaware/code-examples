@@ -9,3 +9,4 @@ This repository hosts sample code for various blog posts on [jvmaware.com](https
 6. [Suppressed Exceptions](./suppressed-exceptions)
 7. [Custom Thread Pool](./custom-thread-pool)
 8. [Streams and Iterables](./stream-support)
+9. [Test Containers](./test-containers-sb)
