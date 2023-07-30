@@ -1,0 +1,25 @@
+### SAVE_STUDENT_RECORD
+# saves a new record in the system
+# as identified by the json payload
+# mentioned below
+POST http://localhost:8080/student/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "JVM",
+  "lastName": "Aware",
+  "address": {
+    "house": 101,
+    "city": "JVMverse",
+    "street": "HeapStreet"
+  }
+}
+
+### GET_ALL
+# fetch all the reords as present in the system
+GET http://localhost:8080/student/
+
+### GET
+# fetch a student record based on the id
+GET http://localhost:8080/student/1

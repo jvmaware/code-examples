@@ -1,0 +1,8 @@
+# this is commented as on local
+# a ServiceConnection from MariaDBContainer
+# is injected
+# DB_HOST: localhost
+
+app:
+  username: sbtc
+  password: password

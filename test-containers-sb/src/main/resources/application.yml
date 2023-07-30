@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: SBTC - SpringBoot TestContainers
+
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: com.jvmaware.tcsb.config.UpperCaseNamingStrategy
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    # the hostname should match with the mariadb container name
+    url: jdbc:mariadb://${DB_HOST:mariadb}:3306/${app.db.name}
+    username: ${app.username}
+    password: ${app.password}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+app:
+  db:
+    name: sbtc
+
+server:
+  port: 8080
+
+logging:
+  level:
+    web: debug
+    root: info
+
